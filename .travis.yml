@@ -1,0 +1,11 @@
+--- 
+language: node_js
+node_js: 
+- "0.8"
+- "0.10"
+env: 
+  global: 
+    secure: |-
+      Zy/9kFV4mGpz6bFf98Sddzk3yV4LL6kDRiCZT1Ztz7lSX0w5UQfv5k98uSU0
+      DCHMh7Sgch+FJHbKq3DZPVWiPsSSBbl91jAdXkOuewND4AqPxi9UkFgDIkvd
+      NSO/v5C0bzko2F6dw32XqnGikpORkW7i2hlj2ul2soQeYBz9GvE=
