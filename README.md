@@ -1,11 +1,11 @@
-# Stripi[![Build Status](https://travis-ci.org/jonathanong/stripi.png)](https://travis-ci.org/jonathanong/stripi)
+# Stripi [![Build Status](https://travis-ci.org/jonathanong/stripi.png)](https://travis-ci.org/jonathanong/stripi)
 
 Simpler Stripe API.
 An alternative to [node-stripe](https://github.com/abh/node-stripe) where:
 
 - Error responses matches Stripe's responses exactly
 - Does not wrap around the API - you set the method, route, and request body yourself.
-  Thus, you're not limited to this repo keeping up with Stripe's API.
+  Thus, you're not limited to this repo keeping up with Stripe's API (which seems to be half the issues in that repo).
 
 In other words, [READ THE STRIPE API YOURSELF](https://stripe.com/docs/api).
 
