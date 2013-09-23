@@ -11,26 +11,36 @@ function Stripe(key, version) {
   if (!(this instanceof Stripe))
     return new Stripe(key, version)
 
-  this._auth = 'Basic ' + new Buffer(key + ':').toString('base64')
-  this._version = version || 1
+  this.auth = 'Basic ' + new Buffer(key + ':').toString('base64')
+  this.version = version || 1
 }
 
-Stripe.prototype._request = function (method, route, obj, callback) {
+Stripe.prototype.request = function (method, route, obj, callback) {
   if (route[0] !== '/')
     route = '/' + route
 
-  var data = new Buffer(qs.stringify(obj))
+  if (typeof obj === 'function') {
+    callback = obj
+    obj = null
+  }
+
+  var data
+  var headers = {
+    Authorization: this.auth,
+    Accept: 'application/json'
+  }
+
+  if (obj) {
+    data = new Buffer(qs.stringify(obj))
+    headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    headers['Content-Length'] = data.length
+  }
 
   https.request({
     host: 'api.stripe.com',
-    path: '/v' + this._version + route,
+    path: '/v' + this.version + route,
     method: method,
-    headers: {
-      'Authorization': this._auth,
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Content-Length': data.length
-    }
+    headers: headers
   })
   .once('error', callback)
   .once('response', function (res) {
@@ -67,6 +77,6 @@ Stripe.prototype._request = function (method, route, obj, callback) {
 
 methods.forEach(function (method) {
   Stripe.prototype[method] = function (route, obj, callback) {
-    return this._request(method.toUpperCase(), route, obj, callback)
+    return this.request(method.toUpperCase(), route, obj, callback)
   }
 })

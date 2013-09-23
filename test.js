@@ -11,6 +11,8 @@ var stripe = require('./')(key)
 
 describe('Stripe JSON', function () {
   describe('Token', function () {
+    var token
+
     it('should create a token', function (done) {
       stripe.post('/tokens', {
         card: {
@@ -19,9 +21,20 @@ describe('Stripe JSON', function () {
           exp_year: 2014,
           cvc: 123
         }
-      }, function (err, card) {
+      }, function (err, _token) {
         assert.ifError(err)
-        assert.ok(card.id)
+        assert.ok(_token.id)
+
+        token = _token
+
+        done()
+      })
+    })
+
+    it('should not require a request body', function (done) {
+      stripe.get('/tokens/' + token.id, function (err, token2) {
+        assert.ifError(err)
+        assert.equal(token.id, token2.id)
 
         done()
       })

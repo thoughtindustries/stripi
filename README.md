@@ -22,7 +22,7 @@ var stripe = Stripe(key, 1)
 You don't need to set the `version`,
 but this is in case Stripe upgrades their API version in the future - no updated to this repo would be necesasry.
 
-### Stripe#{method}(route, request, callback(err, response))
+### Stripe#{method}(route [, request], callback(err, response))
 
 ```js
 stripe.post('/tokens', {
@@ -40,7 +40,7 @@ stripe.post('/tokens', {
 
 - `method` - the request method
 - `route` - the route after the version. Leading `/` is optional. For example, for `https://api.stripe.com/v1/tokens`, you only need to put in `/tokens` or `tokens`.
-- `request` - the request body. Should be an object.
+- `request` (optional) - the request body. Should be an object or `null` (`GET` requests).
 - `err` - the error if the response was not a 200 status code.
 - `response` - the response body. Should be an object.
 
