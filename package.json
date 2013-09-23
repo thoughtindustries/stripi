@@ -1,0 +1,31 @@
+{
+  "name": "stripi",
+  "description": "Simpler Stripe API",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanong/stripi.git"
+  },
+  "bugs": {
+    "mail": "me@jongleberry.com",
+    "url": "https://github.com/jonathanong/stripi/issues"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "methods": "~0.0.1",
+    "qs": "~0.6.5"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
+}
