@@ -51,6 +51,7 @@ describe('Stripe JSON', function () {
       }, function (err, card) {
         assert.ok(err)
         assert.equal(err.type, 'card_error')
+        assert.equal(err.name, 'card_error')
         assert.equal(err.code, 'invalid_number')
         assert.equal(err.param, 'number')
         assert.equal(err.status, 402)

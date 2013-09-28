@@ -65,7 +65,7 @@ Stripe.prototype.request = function (method, route, obj, callback) {
 
       var error = body.error
       var err = new Error(error.message)
-      err.type = error.type
+      err.type = err.name = error.type
       err.code = error.code
       err.param = error.param
       err.status = res.statusCode
