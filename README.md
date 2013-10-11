@@ -1,4 +1,4 @@
-# Stripi [![Build Status](https://travis-ci.org/jonathanong/stripi.png)](https://travis-ci.org/jonathanong/stripi)
+# Stripi [![Build Status](https://travis-ci.org/funraiseme/stripi.png)](https://travis-ci.org/funraiseme/stripi)
 
 Simpler Stripe API.
 An alternative to [node-stripe](https://github.com/abh/node-stripe) where:

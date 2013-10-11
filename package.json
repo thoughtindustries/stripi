@@ -11,11 +11,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonathanong/stripi.git"
+    "url": "https://github.com/funraiseme/stripi.git"
   },
   "bugs": {
     "mail": "me@jongleberry.com",
-    "url": "https://github.com/jonathanong/stripi/issues"
+    "url": "https://github.com/funraiseme/stripi/issues"
   },
   "scripts": {
     "test": "make test"
