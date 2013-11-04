@@ -73,6 +73,10 @@ Stripe.prototype.request = function (method, route, obj, callback) {
     })
   })
   .end(data)
+  
+  return function (fn) {
+    callback = fn
+  }
 }
 
 methods.forEach(function (method) {
