@@ -1,4 +1,5 @@
 assert = require('assert')
+co = require('co')
 
 var key = process.env.STRIPE_API_SECRET
   || process.env.STRIPE_API
@@ -29,6 +30,21 @@ describe('Stripe JSON', function () {
 
         done()
       })
+    })
+
+    it('should work as a yieldable', function (done) {
+      co(function*() {
+        var token = yield stripe.post('/tokens', {
+          card: {
+            number: 4242424242424242,
+            exp_month: 12,
+            exp_year: 2014,
+            cvc: 123
+          }
+        })
+        assert.ok(token)
+        assert.ok(token.id)
+      })(done)
     })
 
     it('should not require a request body', function (done) {

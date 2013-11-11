@@ -18,13 +18,15 @@
     "url": "https://github.com/funraiseme/stripi/issues"
   },
   "scripts": {
-    "test": "make test"
+    "test": "NODE=gnode make test"
   },
   "dependencies": {
     "methods": "~0.0.1",
     "qs": "~0.6.5"
   },
   "devDependencies": {
+    "co": "*",
+    "gnode": "*",
     "mocha": "*",
     "should": "*"
   }

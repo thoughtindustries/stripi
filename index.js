@@ -36,13 +36,14 @@ Stripe.prototype.request = function (method, route, obj, callback) {
     headers['Content-Length'] = data.length
   }
 
-  https.request({
+  var req = https.request({
     host: 'api.stripe.com',
     path: '/v' + this.version + route,
     method: method,
     headers: headers
   })
-  .once('error', callback)
+
+  req
   .once('response', function (res) {
     res.once('error', callback)
 
@@ -73,9 +74,12 @@ Stripe.prototype.request = function (method, route, obj, callback) {
     })
   })
   .end(data)
-  
+
+  if (callback)
+    req.on('error', callback)
+
   return function (fn) {
-    callback = fn
+    req.on('error', callback = fn)
   }
 }
 
