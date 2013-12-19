@@ -1,7 +1,7 @@
 {
   "name": "stripi",
   "description": "Simpler Stripe API",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",
@@ -21,7 +21,7 @@
     "test": "NODE=gnode make test"
   },
   "dependencies": {
-    "methods": "~0.0.1",
+    "methods": "~0.1.0",
     "qs": "~0.6.5"
   },
   "devDependencies": {
