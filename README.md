@@ -1,5 +1,7 @@
 # Stripi [![Build Status](https://travis-ci.org/funraiseme/stripi.png)](https://travis-ci.org/funraiseme/stripi)
 
+DEPRECATED. [node-stripe](https://github.com/abh/node-stripe) is now actively maintained (by stripe themselves, no-less).
+
 Simpler Stripe API.
 An alternative to [node-stripe](https://github.com/abh/node-stripe) where:
 
