@@ -9,24 +9,16 @@
     "twitter": "https://twitter.com/jongleberry"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/funraiseme/stripi.git"
-  },
-  "bugs": {
-    "mail": "me@jongleberry.com",
-    "url": "https://github.com/funraiseme/stripi/issues"
-  },
+  "repository": "funraiseme/stripi",
   "scripts": {
-    "test": "NODE=gnode make test"
+    "test": "mocha --harmony-generators --require should --reporter spec"
   },
   "dependencies": {
-    "methods": "~0.1.0",
+    "methods": "1",
     "qs": "~0.6.5"
   },
   "devDependencies": {
     "co": "*",
-    "gnode": "*",
     "mocha": "*",
     "should": "*"
   }
