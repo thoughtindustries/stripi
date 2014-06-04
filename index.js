@@ -1,6 +1,6 @@
 var https = require('https')
 var methods = require('methods')
-var qs = require('qs')
+var qs = require('query-string')
 
 module.exports = Stripe
 
