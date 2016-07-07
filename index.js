@@ -9,7 +9,7 @@ function Stripe(key, version, versionDate) {
     throw new Error('You need a key!');
 
   if (!(this instanceof Stripe))
-    return new Stripe(key, version);
+    return new Stripe(key, version, versionDate);
 
   this.auth = 'Basic ' + new Buffer(key + ':').toString('base64');
   this.version = version || 1;
