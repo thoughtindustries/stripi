@@ -4,7 +4,7 @@ var qs = require('query-string');
 
 module.exports = Stripe;
 
-function Stripe(key, version) {
+function Stripe(key, version, versionDate) {
   if (!key)
     throw new Error('You need a key!');
 
@@ -13,6 +13,7 @@ function Stripe(key, version) {
 
   this.auth = 'Basic ' + new Buffer(key + ':').toString('base64');
   this.version = version || 1;
+  this.versionDate = versionDate || null;
 }
 
 Stripe.prototype.request = function (method, route, obj, callback) {
@@ -29,6 +30,10 @@ Stripe.prototype.request = function (method, route, obj, callback) {
     Authorization: this.auth,
     Accept: 'application/json'
   };
+
+  if (this.versionDate) {
+    headers['Stripe-Version'] = this.versionDate;
+  }
 
   if (obj) {
     data = new Buffer(qs.stringify(obj));

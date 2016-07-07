@@ -11,7 +11,7 @@ In other words, [READ THE STRIPE API YOURSELF](https://stripe.com/docs/api).
 
 ## API
 
-### new Stripe(key, version)
+### new Stripe(key, version, versionDate)
 
 ```js
 var stripe = Stripe(key, 1)
@@ -20,7 +20,8 @@ var stripe = Stripe(key, 1)
 `key` is your secret API key.
 `version` is the API version, by default `1`.
 You don't need to set the `version`,
-but this is in case Stripe upgrades their API version in the future - no updated to this repo would be necesasry.
+but this is in case Stripe upgrades their API version in the future - no updated to this repo would be necessary.
+`versionDate` is an optional API version specified in the `Stripe-Version` header. It is a date formated as YYYY-MM-DD.
 
 ### Stripe#{method}(route [, request], callback(err, response))
 
