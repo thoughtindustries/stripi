@@ -1,12 +1,11 @@
 {
   "name": "stripi",
   "description": "Simpler Stripe API",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "author": {
-    "name": "Jonathan Ong",
-    "email": "me@jongleberry.com",
-    "url": "http://jongleberry.com",
-    "twitter": "https://twitter.com/jongleberry"
+    "name": "Ti",
+    "email": "eng@thoughtindustries.com",
+    "url": "http://thoughtindustries.com"
   },
   "license": "MIT",
   "repository": "funraiseme/stripi",
