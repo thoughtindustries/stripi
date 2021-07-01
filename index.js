@@ -11,7 +11,7 @@ function Stripe(key, version, versionDate) {
   if (!(this instanceof Stripe))
     return new Stripe(key, version, versionDate);
 
-  this.auth = 'Basic ' + new Buffer(key + ':').toString('base64');
+  this.auth = 'Basic ' + Buffer.from(key + ':', 'utf8').toString('base64');
   this.version = version || 1;
   this.versionDate = versionDate || null;
 }
@@ -36,7 +36,7 @@ Stripe.prototype.request = function (method, route, obj, callback) {
   }
 
   if (obj) {
-    data = new Buffer(qs.stringify(obj));
+    data = Buffer.from(qs.stringify(obj), 'utf8');
     headers['Content-Type'] = 'application/x-www-form-urlencoded';
     headers['Content-Length'] = data.length;
   }
@@ -84,9 +84,9 @@ Stripe.prototype.request = function (method, route, obj, callback) {
   if (callback)
     req.on('error', callback);
 
-  return function (fn) {
+  return thunkToPromise(function (fn) {
     req.on('error', callback = fn);
-  };
+  });
 };
 
 methods.forEach(function (method) {
@@ -94,3 +94,19 @@ methods.forEach(function (method) {
     return this.request(method.toUpperCase(), route, obj, callback);
   };
 });
+
+var slice = Array.prototype.slice;
+function thunkToPromise(fn) {
+  var ctx = this;
+  return new Promise(function (resolve, reject) {
+    fn.call(ctx, function (err, res) {
+      if (err) {
+        return reject(err);
+      }
+      if (arguments.length > 2) {
+        res = slice.call(arguments, 1);
+      }
+      resolve(res);
+    });
+  });
+};
