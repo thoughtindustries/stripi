@@ -1,5 +1,5 @@
 {
-  "name": "stripi",
+  "name": "@thoughtindustries/stripi",
   "description": "Simpler Stripe API",
   "version": "1.0.0",
   "author": {
@@ -8,7 +8,7 @@
     "url": "http://thoughtindustries.com"
   },
   "license": "MIT",
-  "repository": "funraiseme/stripi",
+  "repository": "@thoughtindustries/stripi",
   "scripts": {
     "test": "mocha --harmony-generators --require should --reporter spec"
   },
